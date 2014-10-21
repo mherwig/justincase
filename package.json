@@ -1,0 +1,10 @@
+{
+  "name": "justincase",
+  "description": "A Node.js script that kicks and bans player from multiplayer games using rcon based on (steam) profile metrics",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "rcon": "0.2.1",
+    "request": "2.45.0"
+  }
+}
