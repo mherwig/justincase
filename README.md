@@ -38,7 +38,7 @@ The first one is for configuration and the other one is for the implementation. 
   }
 }
 ```
-`url`: Stem Web API url wiithout arguments
+`url`: Stem Web API url without arguments
 
 `singleSubject`: Whether or not to inject 'steamid' instead of 'steamids' as argument
 
@@ -61,6 +61,8 @@ exports.routine = {
 };
 ```
 **Note:** The function name and the corresponding key in the json file must be same with the exception that you have to prepend 'on' to the function name.
+
+The return value must be boolean and therefore `true` or `false`. You should use a comparison with a positive schema, so that the return value will be `true` if the requested data conforms to your `expectedValue`.
 
 *plugins/steam/config.json:*
 ```
