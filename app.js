@@ -23,7 +23,7 @@ conn.on('auth', function() {
   process.exit();
 });
 
-//conn.connect();
+conn.connect();
 
 // for testing
 var steamid = "76561197971702611";
