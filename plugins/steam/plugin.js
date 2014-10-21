@@ -24,7 +24,7 @@ var pass = function(steamid, data, funcName, func) {
   eventEmitter.emit('passed', result);
 };
 
-function doRequest(steamid, url, params, funcName, func) {
+function doRequest(steamid, url, params, singleSubject, funcName, func) {
   var urlWithParams = url + "?";
 
   for (var param in params) {
@@ -34,8 +34,14 @@ function doRequest(steamid, url, params, funcName, func) {
   }
 
   urlWithParams += "key=" + config.key;
+
+  if (singleSubject === true) {
+    urlWithParams += "&steamid=" + steamid;
+  } else {
+    urlWithParams += "&steamids=" + steamid;
+  }
+
   urlWithParams += "&format=" + config.format;
-  urlWithParams += "&steamids=" + steamid;
 
   request(urlWithParams, function(error, response, body) {
     if (!error && response.statusCode == 200) {
@@ -52,10 +58,11 @@ exports.check = function(steamid) {
       if (routineChecks[r].enabled === true) {
         var url = routineChecks[r].url;
         var params = routineChecks[r].params;
+        var singleSubject = routineChecks[r].singleSubject;
         var func = implementations[i].routine["on" + r];
 
         if (isGuilty === false) {
-          doRequest(steamid, url, params, r, func);
+          doRequest(steamid, url, params, singleSubject, r, func);
         } else {
           break;
         }

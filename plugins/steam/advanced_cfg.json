@@ -1,0 +1,9 @@
+{
+  "MinAmountOfOwnedGames": {
+    "url": " http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/",
+    "singleSubject": true,
+    "params": {},
+    "expectedValue": 2,
+    "enabled": true
+  }
+}

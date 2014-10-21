@@ -32,7 +32,7 @@ steamPlugin.check(steamid);
 
 eventEmitter.on('passed', function(result) {
   if (result === false) {
-    // kick and ban
+    // kick and ban, you might want to alter this rcon commends
     conn.send("banid " + result.steamid + " " + reason);
     conn.send("kick " + result.steamid);
     console.log("Player with steamid " + result.steamid + " FAILED " + result.check + " check.");
