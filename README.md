@@ -74,3 +74,7 @@ The return value must be boolean and therefore `true` or `false`. You should use
 ```
 
 Add your new profile to plugin's config as seen above.
+
+## Compatibility
+
+Currently successfully tested with "Fistful Of Frags" (Source engine). 

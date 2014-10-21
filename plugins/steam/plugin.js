@@ -13,18 +13,18 @@ exports.init = function(ee) {
   }
 };
 
-var pass = function(steamid, data, funcName, func) {
+var pass = function(user, data, funcName, func) {
   var hasPassed = func(JSON.parse(data));
   var result = {
-    steamid: steamid,
+    user: user,
     check: funcName,
     hasPassed: hasPassed
   };
-  if (hasPassed !== true) isGuilty = true;
+  if (hasPassed === false) isGuilty = true;
   eventEmitter.emit('passed', result);
 };
 
-function doRequest(steamid, url, params, singleSubject, funcName, func) {
+function doRequest(user, url, params, singleSubject, funcName, func) {
   var urlWithParams = url + "?";
 
   for (var param in params) {
@@ -36,21 +36,21 @@ function doRequest(steamid, url, params, singleSubject, funcName, func) {
   urlWithParams += "key=" + config.key;
 
   if (singleSubject === true) {
-    urlWithParams += "&steamid=" + steamid;
+    urlWithParams += "&steamid=" + user.communityid;
   } else {
-    urlWithParams += "&steamids=" + steamid;
+    urlWithParams += "&steamids=" + user.communityid;
   }
 
   urlWithParams += "&format=" + config.format;
 
   request(urlWithParams, function(error, response, body) {
     if (!error && response.statusCode == 200) {
-      pass(steamid, body, funcName, func);
+      pass(user, body, funcName, func);
     }
   });
 }
 
-exports.check = function(steamid) {
+exports.check = function(user) {
   for (var i in implementations) {
     var routineChecks = implementations[i].setup;
 
@@ -62,7 +62,7 @@ exports.check = function(steamid) {
         var func = implementations[i].routine["on" + r];
 
         if (isGuilty === false) {
-          doRequest(steamid, url, params, singleSubject, r, func);
+          doRequest(user, url, params, singleSubject, r, func);
         } else {
           break;
         }
