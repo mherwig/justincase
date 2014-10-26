@@ -81,8 +81,7 @@ Currently successfully tested with "Fistful Of Frags" (Source engine).
 
 ## TODO
 
-* scheduled for Februrary 2015 *
-
+*scheduled for Februrary 2015*
 * Automatic rcon reconnection when disconnected (e.g. at map change of source games)
 * Whitelist implementions
 * Plugin system: Support for different steamid retrieval ways
