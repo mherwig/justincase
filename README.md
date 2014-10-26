@@ -86,6 +86,7 @@ Currently successfully tested with "Fistful Of Frags" (Source engine).
 * Whitelist implementions
 * Plugin system: Support for different steamid retrieval ways
 * Plugin system: Support for different rcon command sets
+* Configuration support for multiple instances
 * Ban/Kick logging
 * Ban Appeal web interface
 * Refactoring (make everything more easy and comfortable)
