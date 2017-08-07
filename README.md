@@ -1,7 +1,7 @@
 justincase
 ==========
 
-** NOTE: This project is dead/currently not worked on
+**NOTE: This project is dead/currently not worked on**
 
 A Node.js script that kicks and bans player from multiplayer games using rcon based on (steam) profile metrics.
 
@@ -83,7 +83,6 @@ Currently successfully tested with "Fistful Of Frags" (Source engine).
 
 ## TODO
 
-*future improvements
 * Automatic rcon reconnection when disconnected (e.g. at map change of source games)
 * Whitelist implementions
 * Configuration support for multiple instances
